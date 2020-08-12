@@ -8,5 +8,7 @@ This application was created to make it easy for people to reach local farmers a
 - Typescript
 - Node.js
 - Express
+- SQLite3
+- Knex
 
 ### Under construction
