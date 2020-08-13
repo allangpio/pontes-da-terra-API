@@ -74,7 +74,6 @@ class FarmersController {
 
     // Insert the data of the items the farmer produces
     const farmer_id = insertedIds[0]; // gets the id from the farmer registered
-    console.log(insertedIds);
 
     const farmerItems = items.map((item_id: number) => {
       return {
