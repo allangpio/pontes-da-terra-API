@@ -30,9 +30,9 @@ This application was created to make it easy for people to reach local farmers a
      - Herbs
      - Milk
      - Others 
-- [] Login and register
-- [] Update profile
-- [] Admin acces to moderate the farmers infor resgistered
+- [ ] Login and register
+- [ ] Update profile
+- [ ] Admin acces to moderate the farmers infor resgistered
 
 ## Tech Stack
 
