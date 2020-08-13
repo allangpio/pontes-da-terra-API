@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import knex from '../database/connection';
+import knex from '../db/index';
 
 class FarmersController {
   async index(request: Request, response: Response) {
@@ -70,7 +70,7 @@ class FarmersController {
 
     // Insert farmer data on the Database
     // Knex insert method returns the id of the records as an array
-    const insertedIds = await trx('farmers').insert(farmer);
+    const insertedIds = await trx('farmers').returning('id').insert(farmer);
 
     // Insert the data of the items the farmer produces
     const farmer_id = insertedIds[0]; // gets the id from the farmer registered

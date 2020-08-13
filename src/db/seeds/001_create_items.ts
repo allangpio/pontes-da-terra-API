@@ -1,6 +1,10 @@
-import Knex from 'knex';
+import * as Knex from 'knex';
 
-export async function seed(knex: Knex) {
+export async function seed(knex: Knex): Promise<void> {
+  // Deletes ALL existing entries
+  await knex('items').del();
+
+  // Inserts seed entries
   await knex('items').insert([
     {title: 'Frutas', image: 'frutas.svg'},
     {title: 'Legumes', image: 'legumes.svg'},
