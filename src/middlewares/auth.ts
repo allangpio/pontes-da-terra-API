@@ -9,7 +9,8 @@ export default function (req: Request, res: Response, next: NextFunction) {
 
   const parts = authHeader.split(' ');
 
-  if (!parts.length === 2) return res.status(401).json({Error: 'Token error'});
+  if (!(parts.length === 2))
+    return res.status(401).json({Error: 'Token error'});
 
   const [scheme, token] = parts;
 
@@ -19,7 +20,7 @@ export default function (req: Request, res: Response, next: NextFunction) {
   jwt.verify(token, authConfig.secret, (err, decoded) => {
     if (err) return res.status(401).json({Error: 'Invalid token'});
 
-    req.id = decoded.id;
+    req.userId = decoded.id;
 
     return next();
   });
