@@ -13,6 +13,9 @@ const farmersController = new FarmersController();
 // Register new user
 routes.post('/register', usersController.create);
 
+// Authenticate user
+routes.post('/authenticate', usersController.authenticate);
+
 // List items produced by the farmers
 routes.get('/items', itemsController.index);
 
