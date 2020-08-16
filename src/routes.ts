@@ -21,11 +21,6 @@ routes.post('/register', usersController.create);
 // Authenticate user
 routes.post('/authenticate', usersController.authenticate);
 
-// Test token (delete after test)
-routes.use(authMiddleware).get('/token', (req, res) => {
-  res.json({message: 'Ok', user: req.userId});
-});
-
 // List items produced by the farmers
 routes.get('/items', itemsController.index);
 
@@ -37,5 +32,10 @@ routes.get('/farmers', farmersController.index);
 
 // List a specifc farmer
 routes.get('/farmers/:id', farmersController.show);
+
+// Test token (delete after test)
+routes.use(authMiddleware).get('/token', (req, res) => {
+  res.json({message: 'Ok', user: req.userId});
+});
 
 export default routes;

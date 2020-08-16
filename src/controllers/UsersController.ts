@@ -35,7 +35,7 @@ class UsersController {
 
       return response.json({name, lastName, email, token: generateToken({id})});
     } catch (err) {
-      return response.status(400).json({err: 'Unable to register'});
+      return response.status(400).json({message: 'Unable to register'});
     }
   }
 
