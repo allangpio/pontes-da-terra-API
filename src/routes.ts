@@ -1,7 +1,8 @@
 import express from 'express';
 
-import ItemsController from './controllers/ItemsController';
+import UsersController from './controllers/UsersController';
 import FarmersController from './controllers/FarmersController';
+import ItemsController from './controllers/ItemsController';
 
 const routes = express.Router();
 

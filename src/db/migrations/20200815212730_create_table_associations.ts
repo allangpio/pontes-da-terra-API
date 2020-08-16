@@ -1,9 +1,7 @@
 import * as Knex from 'knex';
 
-// talvez tenha que jogar um .unique() em algum campo para não permitir criar pontos duplicados
-// tirei o .primary() do id pra ver se rola, pq está dando erro
 export async function up(knex: Knex): Promise<void> {
-  return knex.schema.createTable('farmers', (table) => {
+  return knex.schema.createTable('associations', (table) => {
     table.increments('id').primary();
     table.string('image').notNullable();
     table.string('name').notNullable();
@@ -13,9 +11,11 @@ export async function up(knex: Knex): Promise<void> {
     table.decimal('longitude').notNullable();
     table.string('city').notNullable();
     table.string('uf', 2).notNullable();
+
+    table.integer('user_id').notNullable().references('id').inTable('users');
   });
 }
 
 export async function down(knex: Knex): Promise<void> {
-  return knex.schema.dropTable('farmers');
+  return knex.schema.dropTable('associations');
 }
