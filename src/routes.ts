@@ -6,8 +6,12 @@ import ItemsController from './controllers/ItemsController';
 
 const routes = express.Router();
 
+const usersController = new UsersController();
 const itemsController = new ItemsController();
 const farmersController = new FarmersController();
+
+// Register new user
+routes.post('/register', usersController.create);
 
 // List items produced by the farmers
 routes.get('/items', itemsController.index);
