@@ -3,7 +3,7 @@ import express from 'express';
 import UsersController from './controllers/UsersController';
 import FarmersController from './controllers/FarmersController';
 import ItemsController from './controllers/ItemsController';
-import authMiddleware from './middlewares/auth';
+import checkJwt from './middlewares/auth';
 
 const routes = express.Router();
 // routes.use(authMiddleware);
@@ -34,8 +34,13 @@ routes.get('/farmers', farmersController.index);
 routes.get('/farmers/:id', farmersController.show);
 
 // Test token (delete after test)
-routes.use(authMiddleware).get('/token', (req, res) => {
+// routes.use(authMiddleware).get('/token', (req, res) => {
+//   res.json({message: 'Ok', user: req.userId});
+// });
+
+routes.get('/token', checkJwt, (req, res) => {
   res.json({message: 'Ok', user: req.userId});
 });
+
 
 export default routes;
